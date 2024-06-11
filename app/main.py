@@ -218,7 +218,7 @@ params = {'iterations': 406,
  'border_count': 163,
  'l2_leaf_reg': 9}
 model=CatBoostRegressor(**params,task_type="GPU",random_seed=42)
-model.load_model("xtumyson.bin")
+model.load_model("./files/xtumyson.bin")
 
 # %%
 test=result.loc["2024-01-02":]
