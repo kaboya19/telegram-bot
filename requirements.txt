@@ -6,4 +6,5 @@ ta
 pandas-ta
 flask
 gunicorn
-python-telegram-bot 
+python-telegram-bot==13.13
+

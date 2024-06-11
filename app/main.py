@@ -314,13 +314,14 @@ def canlisonuclar(update: Update, context: CallbackContext) -> None:
     # Grafiği Telegram'a gönderme
     update.message.reply_photo(photo=buf)
 
-HTML_FILE_PATH = './files/stochk_macd_roc_macdsignal_mom_endeks.html'
+HTML_FILE_PATH = 'stochk_macd_roc_macdsignal_mom_endeks.html'
+
 
 def backtest(update: Update, context: CallbackContext) -> None:
     # HTML dosyasını açma ve Telegram'a gönderme
     with open(HTML_FILE_PATH, 'rb') as file:
         update.message.reply_document(document=file, filename='report.html')
-TXT_FILE_PATH = './files/stats.txt'
+TXT_FILE_PATH = 'stats.txt'
 
 def stats(update: Update, context: CallbackContext) -> None:
     # TXT dosyasını açma ve içeriğini okuma
@@ -336,7 +337,7 @@ def stats(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     # Updater nesnesini oluşturun ve bot token'ını ekleyin
-    updater = Updater(BOT_TOKEN)
+    updater = Updater(bot=bot)
 
     # Dispatcher nesnesi ile komutları ekleyin
     dispatcher = updater.dispatcher
@@ -356,3 +357,5 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+
+# %%
