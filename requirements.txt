@@ -6,3 +6,4 @@ ta
 pandas-ta
 flask
 gunicorn
+python-telegram-bot 
