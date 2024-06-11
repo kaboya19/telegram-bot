@@ -11,7 +11,7 @@ import pandas as pd, numpy as np
 import yfinance as yf
 
 # %%
-son=pd.read_excel("C:/Users/Bora/Documents/GitHub/telegram-bot/FiyatPenceresi.Xlsx")
+son=pd.read_excel("./files/FiyatPenceresi.Xlsx")
 endeks=son.iloc[-1,:]
 son=son.iloc[:-1,:]
 hisseler=son["Kod"].values
@@ -253,7 +253,7 @@ endeks1["Return"]=(endeks1["Adj Close"]/endeks1["Adj Close"].shift(1))-1
 
 
 # %%
-trade=pd.read_excel("C:/Users/Bora/Documents/GitHub/telegram-bot/trade.xlsx")
+trade=pd.read_excel("./files/trade.xlsx")
 sonuclar=trade[["Kar(%).1","Endeks(%)"]].dropna()
 sonuclar=sonuclar.set_index(yf.download(tickers="XU100.IS",start="2024-04-08").index)
 endeks=yf.download(tickers="XU100.IS",start="2024-04-08")
@@ -314,13 +314,13 @@ def canlisonuclar(update: Update, context: CallbackContext) -> None:
     # Grafiği Telegram'a gönderme
     update.message.reply_photo(photo=buf)
 
-HTML_FILE_PATH = 'C:/Users/Bora/Documents/GitHub/telegram-bot/stochk_macd_roc_macdsignal_mom_endeks.html'
+HTML_FILE_PATH = './files/stochk_macd_roc_macdsignal_mom_endeks.html'
 
 def backtest(update: Update, context: CallbackContext) -> None:
     # HTML dosyasını açma ve Telegram'a gönderme
     with open(HTML_FILE_PATH, 'rb') as file:
         update.message.reply_document(document=file, filename='report.html')
-TXT_FILE_PATH = 'C:/Users/Bora/Documents/GitHub/telegram-bot/stats.txt'
+TXT_FILE_PATH = './files/stats.txt'
 
 def stats(update: Update, context: CallbackContext) -> None:
     # TXT dosyasını açma ve içeriğini okuma
