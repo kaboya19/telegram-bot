@@ -29,7 +29,7 @@ for hisse in hisseler:
     hisse_kapanis.loc[hisse_kapanis["Close"] < hisse_kapanis["Low"], "Low"] = hisse_kapanis["Close"]
 
     df=pd.concat([df,hisse_kapanis],axis=0)
-df
+
 
 # %%
 df["Volume"]=df["Volume"]*df["Close"]
@@ -335,7 +335,7 @@ def stats(update: Update, context: CallbackContext) -> None:
 
 
 
-def main() -> None:
+def robot() -> None:
     # Updater nesnesini oluşturun ve bot token'ını ekleyin
     updater = Updater(bot=bot)
 
@@ -355,7 +355,6 @@ def main() -> None:
     # Botu çalışır durumda tutun
     updater.idle()
 
-if __name__ == '__main__':
-    main()
 
-# %%
+
+robot()
